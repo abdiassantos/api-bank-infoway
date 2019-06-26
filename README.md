@@ -1,23 +1,23 @@
-#API Banco - Teste Infoway
+# API Banco - Teste Infoway
 
-##Sobre
+## Sobre
 Se trata de uma API que gerencia tudo a respeito de um banco financeiro, simulando as transações de um banco real, como cadastro, saque, listagem de contas, saldo e etc.
 
 ## Instalação
 
-####Ambiente de Desenvolvimento
+#### Ambiente de Desenvolvimento
 Você irá precisar possuir instalado a JDK 11.
-#
 
-####Clonando Repositório
+
+#### Clonando Repositório
 Clone o Repositório do Git
 
 ```bash
 git clone https://github.com/abdiassantos/api-bank-infoway.git
 ```
-#
 
-####Building
+
+#### Building
 
 Execute a instalação dos pacotes necessários e pre configuração do proojeto criado através do [Starter Spring Initializr](https://start.spring.io)
 
@@ -25,7 +25,7 @@ Execute a instalação dos pacotes necessários e pre configuração do proojeto
 ./mvnw clean install
 ```
 
-####Executando
+#### Executando
 
 Uma vez preparado o ambiente, podemos executá-lo usando o comando
  ```bash
@@ -33,13 +33,13 @@ Uma vez preparado o ambiente, podemos executá-lo usando o comando
  ./mvnw spring-boot:run
  ```
 
-####Servidor Executando
+#### Servidor Executando
 Após iniciado, o servidor deve apresentar uma saída semelhante a esta
 ![Output Console](https://i.imgur.com/76muVmP.png)
 
-####Paths de Acesso
+#### Paths de Acesso
 http://localhost:8080/api/bank - ` é o path raíz da aplicação, a partir dele podemos acessar outros paths `
-#
+
 /newBank - `é o path para adicionar um novo banco, adicionando ao body do postman um json com os dados do banco a ser inserido`
 ```json
 {
