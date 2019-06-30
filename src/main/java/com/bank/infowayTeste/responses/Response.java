@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.bank.infowayTeste.entities.Viagem;
+import com.bank.infowayTeste.entities.Bank;
 
 public class Response<T> {
 
@@ -33,7 +33,7 @@ public class Response<T> {
 	public Response() {
 	}
 
-	public void setData(Optional<Viagem> viagem) {
+	public void setData(Optional<Bank> bank) {
 		// TODO Auto-generated method stub
 		
 	}

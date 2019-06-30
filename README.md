@@ -44,7 +44,7 @@ http://localhost:8080/api/bank - ` é o path raíz da aplicação, a partir dele
 ```json
 {
     "bankName": "Banco do Abdias",
-    "banckAddress": "Rua Mdo Banco do Abdias, 123",
+    "bankAddress": "Rua Mdo Banco do Abdias, 123",
     "bankCnpj": "11.222.333/4444-55",
     "bankPhone": "+5511233334444",
     "bankBornCity": "Teresina",
