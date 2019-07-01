@@ -15,49 +15,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import com.bank.infowayTeste.dtos.BankDto;
-import com.bank.infowayTeste.entities.Bank;
+import com.bank.infowayTeste.dtos.ClientDto;
+import com.bank.infowayTeste.entities.Client;
 import com.bank.infowayTeste.responses.Response;
-import com.bank.infowayTeste.services.BankServices;
-import com.bank.infowayTeste.services.AgencyServices;
+import com.bank.infowayTeste.services.ClientServices;
 
 @RestController
-@RequestMapping("/api/bank")
-public class BankManagerController {
+@RequestMapping("/api/client")
+public class ClientManagerController {
 
 	@Autowired
-	private BankServices bankServices;
+	private ClientServices clientServices;
 
-	@PostMapping(path = "/newBank")
-	public ResponseEntity<Response<Bank>> cadastrar(@Valid @RequestBody BankDto bankDto, BindingResult result) {
-		Response<Bank> response = new Response<Bank>();
+	@PostMapping(path = "/newClient")
+	public ResponseEntity<Response<Client>> cadastrar(@Valid @RequestBody ClientDto clientDto, BindingResult result) {
+		Response<Client> response = new Response<Client>();
 
 		if (result.hasErrors()) {
 			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
 			return ResponseEntity.badRequest().body(response);
 		}
 
-		Bank bankSave = this.bankServices.salvar(bankDto);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(bankDto.getId())
+		Client clientSave = this.clientServices.salvar(clientDto);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(clientDto.getId())
 				.toUri();
-		response.setData(bankSave);
+		response.setData(clientSave);
 		return ResponseEntity.created(location).body(response);
 	}
 
     //Retornar todos os valores na minha tabela referente a todos os bancos cadastrados
-	@GetMapping(path = "/bank")
-	public ResponseEntity<List<Bank>> listarBanco() {
-		List<Bank> banks = bankServices.listar();
-		return ResponseEntity.status(HttpStatus.OK).body(banks);
+	@GetMapping(path = "/client")
+	public ResponseEntity<List<Client>> listarCliente() {
+		List<Client> clients = clientServices.listar();
+		return ResponseEntity.status(HttpStatus.OK).body(clients);
 	}
 
     //Listar o banco selecionado pelo ID cedido na busca
-	@GetMapping(path = "/bank/{id}")
-	public ResponseEntity<Response<Bank>> buscar(@PathVariable("id") Long id) {
+	@GetMapping(path = "/client/{id}")
+	public ResponseEntity<Response<Client>> buscar(@PathVariable("id") Long id) {
   
-		Bank bank = bankServices.buscar(id);
-		Response<Bank> response = new Response<Bank>();
-		response.setData(bank);
+		Client client = clientServices.buscar(id);
+		Response<Client> response = new Response<Client>();
+		response.setData(client);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 }
