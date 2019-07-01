@@ -51,29 +51,54 @@ http://localhost:8080/api/bank - ` é o path raíz da aplicação, a partir dele
     "bankBornState": "Piauí"
 }
 ```
-
-/newAgency - `é o path para adicionar uma nova agência, adicionando ao body do postman um json com os dados da agência a ser inserida`
+/newAgency - `é o path para adicionar um novo banco, adicionando ao body do postman um json com os dados do banco a ser inserido`
 ```json
 {
     "agencyName": "Banco do Abdias",
-    "agencyAddress": "Rua da Agencia do Banco do Abdias, 1234",
-    "agencyCnpj": "55.444.333/2222-11",
+    "agencyAddress": "Rua Mdo Banco do Abdias, 123",
+    "agencyCnpj": "11.222.333/4444-55",
     "agencyPhone": "+5511233334444",
     "agencyBornCity": "Teresina",
     "agencyBornState": "Piauí",
     "agencyBankId": "1"
 }
 ```
-
+/newClient - `é o path para adicionar um novo banco, adicionando ao body do postman um json com os dados do banco a ser inserido`
+```json
+{
+	"clientName": "Banco do Andressa",
+	"clientAddress": "Rua do Parque Jurema ",
+	"clientCnpj": "11.222.333/1111-11",
+	"clientPhone": "86999677811",
+	"clientBornCity": "Teresina",
+	"clientBornState": "Piaui",
+	"clientAgencyId": "1"
+}
+```
 /newAccount - `é o path para adicionar um novo banco, adicionando ao body do postman um json com os dados do banco a ser inserido`
 ```json
 {
-    "clientName": "Banco do Abdias",
-    "clientAddress": "Rua do Abdias, 1235",
-    "clientCpfCnpj": "111.222.333-44",
-    "clientPhone": "+5511233334444",
-    "clientBornCity": "Teresina",
-    "clientBornState": "Piauí",
-    "clientAgencyId": "1"
+	"accountAgencyId": "1",
+	"accountBalance": 10,
+	"accountClientId": "1",
+	"accountOpenning": "2019-10-19",
+	"deposit": 0,
+	"withdraw": 0
 }
+```
+
+/newAgency - `é o path para Listar todos o registro, trocando o último path por bank, agency, account, ou client para um dos tipos`
+```bash
+localhost:8080/api/client/bank
+localhost:8080/api/client/agency
+localhost:8080/api/client/client
+localhost:8080/api/client/account
+```
+
+/newAccount - `é o path para listar pelo id do path escolhido, entre bank, agency, account, client`
+```bash
+localhost:8080/api/client/bank/1
+localhost:8080/api/client/agency/1
+localhost:8080/api/client/client/1
+localhost:8080/api/client/account/1
 ```
